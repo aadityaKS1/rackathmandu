@@ -1,56 +1,50 @@
-// Abou
-import React from 'react';
-import aboutImage from '../../assets/about.jpg'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import aboutImage from "../../assets/about.jpg";
 
 const AboutUs = () => {
+  return (
+    <section className="bg-[#F8FAFC] py-20">
+      <div className="max-w-6xl mx-auto px-6">
 
-    return (
-        // Section Container: Adds space above and below the whole block
-        <section className=" bg-white py-16 sm:px-10 lg:px-20 ">
-            <div className="container mx-auto max-w-7xl ">
-                
-                {/* Responsive Grid: Stacks on mobile, 2 columns on medium screens and up */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-                    
-                    {/* --- Left Column: Text and Button --- */}
-                    <div className="md:order-1 order-2">
-                        
-                        {/* Heading */}
-                        <h2 className="text-4xl font-extrabold text-[#16376EFF] mb-6">
-                            About Us
-                        </h2>
-                        
-                        {/* Body Text */}
-                        <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                            The Rotaract Club of Kathmandu is a dynamic community of young 
-                            professionals and students dedicated to positive change through leadership, 
-                            service, and international understanding. We develop skills, address 
-                            community needs, and build lasting friendships while making a meaningful 
-                            impact in our communities.
-                        </p>
-                        
-                        {/* CTA Button */}
-                        <a 
-                            href="#about-page" 
-                            className="inline-block px-8 py-3 bg-[#2D679AFF] text-white font-semibold 
-                                       rounded-lg hover:bg-blue-800 transition duration-300"
-                        >
-                            Learn More
-                        </a>
-                    </div>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
 
-                    {/* --- Right Column: Image --- */}
-                    <div className="md:order-2 order-1 md:ml-1">
-                        <img 
-                            src={aboutImage} 
-                            alt="Rotaract Group Photo" 
-                            className="w-[80%] mx-auto rounded-lg shadow-2xl"
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+          {/* Text Content */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#193172] mb-6">
+              About Us
+            </h2>
+
+            <p className="text-gray-600 leading-relaxed mb-8">
+              The Rotaract Club of Kathmandu is a dynamic community of young
+              professionals and students committed to leadership, service, and
+              meaningful community impact. We foster professional growth,
+              strengthen fellowship, and create lasting positive change.
+            </p>
+
+            <NavLink
+              to="/about"
+              className="inline-block bg-[#DA1E5C] text-white px-6 py-3 
+                         rounded-xl hover:scale-105 transition-all duration-300"
+            >
+              Learn More
+            </NavLink>
+          </div>
+
+          {/* Image */}
+          <div>
+            <img
+              src={aboutImage}
+              alt="Rotaract Club Activity"
+              className="w-full rounded-2xl shadow-lg"
+            />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default AboutUs;

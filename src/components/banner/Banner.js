@@ -5,45 +5,48 @@ const Banner = () => {
     width: "full",
     height: "550px",
     // Applying the specific linear gradient
-    background: "linear-gradient(90deg, #29487C 0%, #5AA1B5 100%)",
+    background: "linear-gradient(90deg, #193172 0% , #29487C 50%, #66A5AD 100%)",
     // The border-radius property (0px 0px 0px 0px is equivalent to 0)
     borderRadius: "0",
   };
   return (
-    <section
-      // The main container for the entire banner section
-      className=" inset-0 relative flex items-center justify-center font-montserrat "
-        style={customStyles}
-    >
-      {/* Main Club Heading */}
-      <div className="font-bold absolute top-[120px]  text-[60px] leading-[60px] text-white ">Rotaract Club of Kathmandu</div>
+<section className="relative w-full h-[700px] flex items-center justify-center text-white overflow-hidden">
 
-      {/* Tagline */}
-      <div className="absolute top-[206px]  text-[36px] leading-[40px] font-light text-white">Lead · Connect · Transform</div>
+  {/* Base Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#193172] to-[#66A5AD]" />
 
-      {/* Fellowship Motto Box */}
-      <div className="absolute top-[271ppx]  text-[20px] leading-[28px] font-normal text-white">Fellowship Through Service</div>
+  {/* Soft Glow */}
+  <div className="absolute w-[700px] h-[700px] bg-[#DA1E5C] opacity-20 blur-[200px] rounded-full top-[-200px] right-[-150px]" />
 
-      {/* Action Buttons */}
-      <div className="connects">
-        <a href="#get-involved" className=" absolute top-[325px] left-[580px] w-[181px] h-[60px] px-3 flex items-center justify-center
-             font-sans font-semibold text-[16px] leading-[26px] text-white
-             bg-[#E43F7EFF] rounded-[10px] border-none
-             hover:bg-[#A7184FFF] active:bg-[#83133EFF] scale-105 transition-all duration-300
-             disabled:opacity-40"
->
-          Get Involved
-        </a>
-        <a href="#events"   className="absolute top-[325px] left-[776px] w-[181px] h-[60px] px-3 flex items-center justify-center
-             font-sans font-semibold text-[16px] leading-[26px] text-white 
-             bg-transparent border-2 border-white rounded-[10px]
-              transform hover:scale-105 transition duration-300
-             disabled:opacity-40"
->
-          Explore Events
-        </a>
-      </div>
-    </section>
+  {/* Subtle Texture */}
+  <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:35px_35px] opacity-5"></div>
+
+  {/* Content */}
+  <div className="relative z-10 text-center max-w-4xl px-6">
+    <h1 className="text-6xl font-bold leading-tight">
+      Rotaract Club of Kathmandu
+    </h1>
+
+    <p className="mt-6 text-xl opacity-90">
+      Lead · Connect · Transform
+    </p>
+
+    <p className="mt-2 text-lg opacity-75">
+      Fellowship Through Service
+    </p>
+
+    <div className="flex gap-6 justify-center mt-10">
+      <button className="bg-[#DA1E5C] px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
+        Get Involved
+      </button>
+
+      <button className="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-[#193172] transition-all duration-300">
+        Explore Events
+      </button>
+    </div>
+  </div>
+
+</section>
   );
 };
 

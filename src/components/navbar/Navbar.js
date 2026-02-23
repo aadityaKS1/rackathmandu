@@ -1,11 +1,20 @@
-import React from "react";
-// Make sure this path is correct for your logo file
-import logo from "../../assets/logo.png"; 
-
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Define the navigation links
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -15,52 +24,92 @@ const Navbar = () => {
   ];
 
   return (
-    // Header remains simple for a clean look
-    <header className="w-full bg-white shadow-sm border-b border-gray-100">
-      <div className="max-w-[1400px] mx-auto px-4 py-3 flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+      ${
+        scrolled
+          ? "bg-white shadow-md py-3"
+          : "bg-transparent backdrop-blur-sm py-5"
+      }`}
+    >
+      <div className="max-w-[1300px] mx-auto px-6 flex items-center justify-between">
 
-        {/* Logo + Name Section */}
+        {/* Logo */}
         <div className="flex items-center gap-3">
-          {/* Logo Size Fixed: Reduced for standard navbar size */}
-          <img 
-            src={logo} 
-            alt="Rotaract Club of Kathmandu Logo" 
-            className="w-12 h-auto" // Standard size for a web logo
-          />
-          {/* Club Name - Using the blue color directly */}
-          <h1 className={`font-bold text-xl text-[#2F3B65FF]`}>
-            Rotaract Club of Kathmandu
+          <img src={logo} alt="Rotaract Logo" className="w-12" />
+          <h1
+            className={`font-bold text-lg transition-colors duration-300 ${
+              scrolled ? "text-[#193172]" : "text-white"
+            }`}
+          >
+            Rotaract Kathmandu
           </h1>
         </div>
 
-        {/* Menu & Button Section (Desktop View) */}
-        <div className="flex items-center gap-8">
-            {/* Navigation Menu */}
-            <nav className="flex gap-6 text-base leading-6 font-normal text-gray-600">
-                {navLinks.map((link) => (
-                    <a 
-                        key={link.name}
-                        href={link.href}
-                        // Use hex color directly for hover and active state
-                        className={`hover:text-[#E44E8CFF] transition duration-200 
-                                    ${link.name === "Home" ? `border-b-2 border-[#E44E8CFF] text-[#E44E8CFF]` : ""}`}
-                    >
-                        {link.name}
-                    </a>
-                ))}
-            </nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-8 font-medium">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.href}
+              className={({ isActive }) =>
+                `transition-colors duration-300 ${
+                  isActive
+                    ? "text-[#DA1E5C]"
+                    : scrolled
+                    ? "text-gray-700 hover:text-[#DA1E5C]"
+                    : "text-white hover:text-[#DA1E5C]"
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
 
-
-            <a 
-                href="/join-us"
-                // The following classes make it look and act like a button
-                className="bg-[#E44E8CFF] text-white font-semibold px-6 py-2 rounded-lg
-             hover:bg-[#C53A7A] hover:scale-105
-             transition-[colors,transform] duration-300">
-                Join Us
-            </a>
+        {/* CTA Button */}
+        <div className="hidden md:block">
+          <NavLink
+            to="/join-us"
+            className="bg-[#DA1E5C] text-white px-6 py-2 rounded-xl
+                       hover:scale-105 transition-all duration-300"
+          >
+            Join Us
+          </NavLink>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className={`md:hidden transition-colors duration-300 ${
+            scrolled ? "text-[#193172]" : "text-white"
+          }`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-gray-700 hover:text-[#DA1E5C]"
+            >
+              {link.name}
+            </NavLink>
+          ))}
+          <NavLink
+            to="/join-us"
+            className="block bg-[#DA1E5C] text-white text-center py-2 rounded-lg"
+          >
+            Join Us
+          </NavLink>
+        </div>
+      )}
     </header>
   );
 };
