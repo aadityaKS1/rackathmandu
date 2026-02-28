@@ -6,7 +6,7 @@ import linkedin from '../../assets/linkedin.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#193073] w-full mt-16 py-16 px-6 sm:px-10 lg:px-20">
+    <footer className="bg-[#193073] w-full py-16 px-6 sm:px-10 lg:px-20">
 
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:gap-0">
 
