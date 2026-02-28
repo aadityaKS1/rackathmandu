@@ -18,7 +18,7 @@ function ContactForm() {
 
           {/* LEFT - FORM */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#193172] mb-8">
               Send Us a Message
             </h2>
 
@@ -76,7 +76,7 @@ function ContactForm() {
 
           {/* RIGHT - CONTACT INFO */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#193172] mb-8">
               Contact Information
             </h2>
 
@@ -99,10 +99,10 @@ function ContactForm() {
                 className="flex items-start gap-4 p-2 rounded-md hover:bg-gray-50 transition"
               >
                 <div className="bg-blue-100 p-3 rounded-full">
-                  <MapPin className="text-blue-900" size={20} />
+                  <MapPin className="text-[#193172]" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900">Our Address</h4>
+                  <h4 className="font-semibold text-[#193172]">Our Address</h4>
                   <p className="text-gray-600">
                     Rotary Hall, Thapathali Road Kathmandu 44600, Nepal
                   </p>
@@ -115,10 +115,10 @@ function ContactForm() {
                 className="flex items-start gap-4 p-2 rounded-md hover:bg-gray-50 transition"
               >
                 <div className="bg-blue-100 p-3 rounded-full">
-                  <Mail className="text-blue-900" size={20} />
+                  <Mail className="text-[#193172]" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900">Email Us</h4>
+                  <h4 className="font-semibold text-[#193172]">Email Us</h4>
                   <p className="text-gray-600">
                     info@rotaractkathmandu.org
                   </p>
@@ -131,10 +131,10 @@ function ContactForm() {
                 className="flex items-start gap-4 p-2 rounded-md hover:bg-gray-50 transition"
               >
                 <div className="bg-blue-100 p-3 rounded-full">
-                  <Phone className="text-blue-900" size={20} />
+                  <Phone className="text-[#193172]" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900">Call Us</h4>
+                  <h4 className="font-semibold text-[#193172]">Call Us</h4>
                   <p className="text-gray-600">+977 1 4123456</p>
                 </div>
               </a>
@@ -142,10 +142,10 @@ function ContactForm() {
               {/* Meeting Times */}
               <div className="flex items-start gap-4">
                 <div className="bg-blue-100 p-3 rounded-full">
-                  <Clock className="text-blue-900" size={20} />
+                  <Clock className="text-[#193172]" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900">Meeting Times</h4>
+                  <h4 className="font-semibold text-[#193172]">Meeting Times</h4>
                   <p className="text-gray-600">
                     Every Sunday at 5:00 PM <br />
                     Hotel Himalaya, Kupondole
@@ -161,7 +161,7 @@ function ContactForm() {
                 href="https://www.facebook.com/rotaractkathmandu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-900 text-white p-3 rounded-full hover:scale-105 transition"
+                className="bg-[#193172] text-white p-3 rounded-full hover:scale-105 transition"
               >
                 <Facebook size={18} />
               </a>
@@ -170,7 +170,7 @@ function ContactForm() {
                 href="https://www.instagram.com/rotaractkathmandu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-900 text-white p-3 rounded-full hover:scale-105 transition"
+                className="bg-[#193172] text-white p-3 rounded-full hover:scale-105 transition"
               >
                 <Instagram size={18} />
               </a>
@@ -179,7 +179,7 @@ function ContactForm() {
                 href="https://www.linkedin.com/company/rotaractkathmandu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-900 text-white p-3 rounded-full hover:scale-105 transition"
+                className="bg-[#193172] text-white p-3 rounded-full hover:scale-105 transition"
               >
                 <Linkedin size={18} />
               </a>

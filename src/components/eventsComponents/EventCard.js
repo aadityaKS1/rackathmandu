@@ -32,7 +32,7 @@ const EventCard = ({
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <h3 className="text-lg font-semibold text-[#193172] mb-2">
           {title}
         </h3>
 
@@ -50,7 +50,7 @@ const EventCard = ({
               ${
                 isCompleted
                   ? "bg-gray-100 text-gray-600"
-                  : "bg-blue-100 text-blue-600"
+                  : "bg-blue-100 text-[#193172]"
               }`}
           >
             {status}
@@ -58,7 +58,7 @@ const EventCard = ({
 
           {/* Action Button */}
           {actionType === "view" ? (
-            <button className="bg-blue-900 text-white text-sm px-4 py-2 rounded-full">
+            <button className="bg-[#193172] text-white text-sm px-4 py-2 rounded-full">
               View More
             </button>
           ) : (

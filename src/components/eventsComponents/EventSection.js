@@ -83,7 +83,7 @@ const EventSection = () => {
               onClick={() => setActiveFilter(item)}
               className={`px-5 py-2 rounded-full text-sm font-medium ${
                 activeFilter === item
-                  ? "bg-blue-900 text-white"
+                ? "bg-[#193172] text-white"
                   : "bg-white border border-gray-300 text-gray-600"
               }`}
             >
@@ -101,7 +101,7 @@ const EventSection = () => {
 
         {/* Load More */}
         <div className="flex justify-center mt-16">
-          <button className="bg-blue-900 text-white px-8 py-3 rounded-full">
+        <button className="bg-[#193172] text-white px-8 py-3 rounded-full">
             Load More Events
           </button>
         </div>

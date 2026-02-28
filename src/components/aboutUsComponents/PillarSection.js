@@ -5,7 +5,7 @@ const PillarsSection = () => {
   return (
     <section className="w-full bg-blue-50 mt-16 py-16 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#193172]">
           Lead · Connect · Transform
         </h2>
         <p className="text-gray-600 mt-3">
@@ -18,7 +18,7 @@ const PillarsSection = () => {
         {/* Lead */}
         <div className="bg-white p-8 rounded-lg shadow-md text-center space-y-4">
           <div className="w-14 h-14 mx-auto bg-green-100 flex items-center justify-center rounded-full">
-            <User className="text-green-600" size={24} />
+            <User className="text-[#66a5ad]" size={24} />
           </div>
           <h3 className="text-xl font-semibold text-blue-900">Lead</h3>
           <p className="text-gray-600">
@@ -29,7 +29,7 @@ const PillarsSection = () => {
         {/* Connect */}
         <div className="bg-white p-8 rounded-lg shadow-md text-center space-y-4">
           <div className="w-14 h-14 mx-auto bg-green-100 flex items-center justify-center rounded-full">
-            <Globe className="text-green-600" size={24} />
+            <Globe className="text-[#66a5ad]" size={24} />
           </div>
           <h3 className="text-xl font-semibold text-blue-900">Connect</h3>
           <p className="text-gray-600">
@@ -40,9 +40,9 @@ const PillarsSection = () => {
         {/* Transform */}
         <div className="bg-white p-8 rounded-lg shadow-md text-center space-y-4">
           <div className="w-14 h-14 mx-auto bg-green-100 flex items-center justify-center rounded-full">
-            <RefreshCcw className="text-green-600" size={24} />
+            <RefreshCcw className="text-[#66a5ad]" size={24} />
           </div>
-          <h3 className="text-xl font-semibold text-blue-900">Transform</h3>
+          <h3 className="text-xl font-semibold text-[#193172]">Transform</h3>
           <p className="text-gray-600">
             We transform communities through sustainable service projects and personal growth.
           </p>

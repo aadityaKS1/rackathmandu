@@ -16,7 +16,7 @@ const JourneySection = () => {
 
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#193172]">
             Our Journey
           </h2>
           <p className="text-gray-600 mt-3">
@@ -39,7 +39,7 @@ const JourneySection = () => {
                   <div className="flex justify-end pr-8 py-12">
                     {isLeft && (
                       <div className="bg-white p-6 rounded-xl shadow-md text-right max-w-sm">
-                        <h3 className="text-lg font-bold text-blue-900 mb-2">
+                        <h3 className="text-lg font-bold text-[#193172] mb-2">
                           {item.year}
                         </h3>
                         <p className="text-gray-600">{item.text}</p>
@@ -49,16 +49,16 @@ const JourneySection = () => {
 
                   {/* CENTER LINE + RING */}
                   <div className="flex flex-col items-center">
-                    <div className="w-1 bg-teal-500 flex-1"></div>
+                    <div className="w-1 bg-[#66a5ad] flex-1"></div>
                     <div className="w-6 h-6 border-4 border-[#da1e5c] bg-white rounded-full"></div>
-                    <div className="w-1 bg-teal-500 flex-1"></div>
+                    <div className="w-1 bg-[#66a5ad] flex-1"></div>
                   </div>
 
                   {/* RIGHT SIDE */}
                   <div className="flex justify-start pl-8 py-12">
                     {!isLeft && (
                       <div className="bg-white p-6 rounded-xl shadow-md text-left max-w-sm">
-                        <h3 className="text-lg font-bold text-blue-900 mb-2">
+                        <h3 className="text-lg font-bold text-[#193172] mb-2">
                           {item.year}
                         </h3>
                         <p className="text-gray-600">{item.text}</p>

@@ -8,7 +8,7 @@ const StorySection = () => {
                 {/* Left Content */}
                 <div className="md:col-span-2 space-y-8">
                     <div>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-4">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-[#193172] mb-4">
                             Our Story
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
@@ -21,7 +21,7 @@ const StorySection = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-4">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-[#193172] mb-4">
                             Our Vision
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
@@ -32,7 +32,7 @@ const StorySection = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-4">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-[#193172] mb-4">
                             Our Mission
                         </h2>
                         <p className="text-gray-600 leading-relaxed">

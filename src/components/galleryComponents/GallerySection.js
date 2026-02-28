@@ -42,7 +42,7 @@ const GallerySection = () => {
               className={`px-6 py-2 rounded-full font-medium transition 
                 ${
                   activeFilter === filter
-                    ? "bg-blue-900 text-white"
+                    ? "bg-[#193172] text-white"
                     : "border border-gray-300 text-gray-600 hover:bg-gray-200"
                 }`}
             >
@@ -69,7 +69,7 @@ const GallerySection = () => {
 
         {/* Button */}
         <div className="flex justify-center mt-20">
-          <button className="bg-teal-600 hover:bg-teal-700 text-white px-10 py-3 rounded-full flex items-center gap-2 transition">
+          <button className="bg-[#66a5ad] hover:bg-[#39a1ae] text-white px-10 py-3 rounded-full flex items-center gap-2 transition">
             View More Albums →
           </button>
         </div>

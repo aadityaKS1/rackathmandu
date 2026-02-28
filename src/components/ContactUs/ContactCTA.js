@@ -6,7 +6,7 @@ function ContactCTA() {
         <div className="w-full bg-blue-50 py-16 mt-8">
             <div className="max-w-5xl mx-auto px-4 text-center">
 
-                <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-6">
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#193172] mb-6">
                     Let's Make a Difference Together
                 </h2>
 
