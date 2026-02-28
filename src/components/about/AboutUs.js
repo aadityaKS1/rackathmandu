@@ -4,13 +4,14 @@ import aboutImage from "../../assets/about.jpg";
 
 const AboutUs = () => {
   return (
-    <section className="bg-[#F8FAFC] py-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-[#F8FAFC] py-12 sm:py-16 md:py-20 lg:py-24">
+      {/* Wider container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
 
           {/* Text Content */}
-          <div>
+          <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-[#193172] mb-6">
               About Us
             </h2>
@@ -24,15 +25,14 @@ const AboutUs = () => {
 
             <NavLink
               to="/about"
-              className="inline-block bg-[#DA1E5C] text-white px-6 py-3 
-                         rounded-xl hover:scale-105 transition-all duration-300"
+              className="inline-block bg-[#DA1E5C] text-white px-6 sm:px-7 md:px-8 py-3 rounded-xl transition-transform duration-300 hover:scale-105"
             >
               Learn More
             </NavLink>
           </div>
 
           {/* Image */}
-          <div>
+          <div className="mt-8 md:mt-0">
             <img
               src={aboutImage}
               alt="Rotaract Club Activity"
@@ -41,7 +41,6 @@ const AboutUs = () => {
           </div>
 
         </div>
-
       </div>
     </section>
   );

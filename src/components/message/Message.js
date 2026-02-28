@@ -1,13 +1,17 @@
+import React from "react";
+
 const Message = () => {
   return (
-    <section className="bg-gradient-to-r from-[#29487C] to-[#5AA1B5] py-24 flex flex-col items-center">
+    <section className="bg-gradient-to-r from-[#29487C] to-[#5AA1B5] py-24 flex flex-col items-center px-4 sm:px-6 lg:px-8">
+
       {/* Section Title */}
       <h2 className="text-white font-montserrat text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6">
         What Our Members Say
       </h2>
 
       {/* Description Text */}
-      <p className="mt-6 sm:mt-12 mx-auto w-[768px] text-white font-montserrat text-[24px] leading-[32px] font-normal text-center italic">
+      <p className="mt-6 sm:mt-12 text-white font-montserrat text-[24px] leading-[32px] font-normal text-center italic 
+                    max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
         "Being part of Rotaract has transformed my perspective on service and leadership. The connections I've made and the impact we've had on our community has been truly life-changing."
       </p>
 
@@ -27,6 +31,7 @@ const Message = () => {
           <div className="w-3 h-3 bg-white rounded-full opacity-30"></div>
         </div>
       </div>
+
     </section>
   );
 };

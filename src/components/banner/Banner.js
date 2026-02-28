@@ -1,52 +1,66 @@
 import React from "react";
 
 const Banner = () => {
-  const customStyles = {
-    width: "full",
-    height: "550px",
-    // Applying the specific linear gradient
-    background: "linear-gradient(90deg, #193172 0% , #29487C 50%, #66A5AD 100%)",
-    // The border-radius property (0px 0px 0px 0px is equivalent to 0)
-    borderRadius: "0",
-  };
   return (
-<section className="relative w-full h-[700px] flex items-center justify-center text-white overflow-hidden">
+    <section className="w-full min-h-[85vh] flex items-center justify-center 
+                        bg-gradient-to-br from-[#010f37] via-[#29487C] to-[#66A5AD]
+                        px-4 sm:px-6 lg:px-8 
+                        py-16 sm:py-20 lg:py-24">
 
-  {/* Base Gradient */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#193172] to-[#66A5AD]" />
+      <div className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl 
+                      text-center text-white mx-auto">
 
-  {/* Soft Glow */}
-  <div className="absolute w-[700px] h-[700px] bg-[#DA1E5C] opacity-20 blur-[200px] rounded-full top-[-200px] right-[-150px]" />
+        {/* Heading */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+                       font-bold leading-snug">
+          Rotaract Club of Kathmandu
+        </h1>
 
-  {/* Subtle Texture */}
-  <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:35px_35px] opacity-5"></div>
+        {/* Sub Text */}
+        <p className="mt-5 sm:mt-6 
+                      text-base sm:text-lg md:text-xl 
+                      opacity-90">
+          Lead · Connect · Transform
+        </p>
 
-  {/* Content */}
-  <div className="relative z-10 text-center max-w-4xl px-6">
-    <h1 className="text-6xl font-bold leading-tight">
-      Rotaract Club of Kathmandu
-    </h1>
+        <p className="mt-2 
+                      text-sm sm:text-base md:text-lg 
+                      opacity-75">
+          Fellowship Through Service
+        </p>
 
-    <p className="mt-6 text-xl opacity-90">
-      Lead · Connect · Transform
-    </p>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row 
+                        justify-center items-center 
+                        gap-4 sm:gap-6 
+                        mt-8 sm:mt-10">
 
-    <p className="mt-2 text-lg opacity-75">
-      Fellowship Through Service
-    </p>
+          <button className="bg-[#DA1E5C] 
+                             px-6 sm:px-8 
+                             py-2.5 sm:py-3 
+                             rounded-xl 
+                             font-semibold 
+                             shadow-lg 
+                             transition-transform duration-300 
+                             hover:scale-105 
+                             w-full sm:w-auto">
+            Get Involved
+          </button>
 
-    <div className="flex gap-6 justify-center mt-10">
-      <button className="bg-[#DA1E5C] px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
-        Get Involved
-      </button>
+          <button className="border border-white 
+                             px-6 sm:px-8 
+                             py-2.5 sm:py-3 
+                             rounded-xl 
+                             transition-colors duration-300 
+                             hover:bg-white hover:text-[#193172] 
+                             w-full sm:w-auto">
+            Explore Events
+          </button>
 
-      <button className="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-[#193172] transition-all duration-300">
-        Explore Events
-      </button>
-    </div>
-  </div>
+        </div>
 
-</section>
+      </div>
+    </section>
   );
 };
 
