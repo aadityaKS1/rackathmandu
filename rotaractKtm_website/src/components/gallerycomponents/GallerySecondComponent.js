@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../api";
+
 function Gallery() {
   const [photos, setPhotos] = useState([]);
   const [showAll, setShowAll] = useState(false);
@@ -7,8 +8,7 @@ function Gallery() {
   useEffect(() => {
     API.get("/gallery/")
       .then((res) => {
-        // Sort by ID to get first photos consistently
-        const sortedPhotos = res.data.sort((a, b) => a.id - b.id);
+        const sortedPhotos = res.data.sort((a, b) => b.id - a.id);
         setPhotos(sortedPhotos);
       })
       .catch((err) => {
@@ -16,40 +16,55 @@ function Gallery() {
       });
   }, []);
 
-  // Determine photos to display
   const displayedPhotos = showAll ? photos : photos.slice(0, 9);
 
   return (
-    <div className="max-w-6xl mx-auto py-10">
-      <h1 className="text-3xl font-bold text-center mb-8">Gallery</h1>
+    <section
+      className="w-full min-h-[70vh] flex flex-col items-center
+                 bg-gradient-to-br from-[#010f37] via-[#193172] to-[#66A5AD]
+                 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
+    >
+      {/* Heading */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+                     font-bold leading-snug text-white text-center mb-12">
+        Our Moments in Action
+      </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Gallery Grid */}
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {displayedPhotos.map((photo) => (
-          <div key={photo.id} className="overflow-hidden rounded-lg shadow-lg">
+          <div
+            key={photo.id}
+            className="overflow-hidden rounded-2xl shadow-xl 
+                       bg-white/10 backdrop-blur-md transition-transform duration-300 hover:scale-105"
+          >
             <img
               src={photo.image}
               alt={photo.title || "Gallery Image"}
               className="w-full h-64 object-cover"
             />
             {photo.title && (
-              <p className="p-2 text-center font-medium">{photo.title}</p>
+              <p className="p-4 text-center font-medium text-white">
+                {photo.title}
+              </p>
             )}
           </div>
         ))}
       </div>
 
-      {/* Show button only if there are more than 9 photos */}
+      {/* View All Button */}
       {photos.length > 9 && (
-        <div className="text-center mt-6">
+        <div className="mt-12 text-center">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="px-8 py-3 bg-[#193172] text-white rounded-full 
+                       hover:bg-[#010f37] transition duration-300"
           >
             {showAll ? "View Less" : "View All Photos"}
           </button>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

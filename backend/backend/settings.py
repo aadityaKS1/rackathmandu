@@ -12,11 +12,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os 
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,6 +44,10 @@ INSTALLED_APPS = [
     'api',
     'corsheaders',
     'rest_framework',
+    'formsubmitted',
+    'cloudinary',
+    'cloudinary_storage',
+
 
 ]
 
@@ -83,10 +88,13 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'rac_db',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }}
 
 
 # Password validation
@@ -135,3 +143,69 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+
+# import ssl
+# import certifi
+
+# # Force Python to use certifi certificate bundle for SSL
+# ssl._create_default_https_context = lambda: ssl.create_default_context(cafile=certifi.where())
+
+# import ssl
+# import certifi
+
+# ssl._create_default_https_context = lambda: ssl.create_default_context(cafile=certifi.where())
+
+
+
+# Development email settings - prints emails to console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# You can keep these for future production use
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your_email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your_email_password'
+# DEFAULT_FROM_EMAIL = 'your_email@gmail.com'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'formsubmitted.backends.email_backend.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'anishks494@gmail.com'        # Replace with your Gmail
+EMAIL_HOST_PASSWORD = 'ftqixdldklqpidyj'    
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+# from django.core.mail import send_mail
+# from django.conf import settings
+
+# send_mail(
+#     "Test Email",
+#     "Hello world",
+#     settings.DEFAULT_FROM_EMAIL,
+#     ["anishks494@gmail.com"],  # replace with actual recipient
+#     fail_silently=False
+# )
+
+import cloudinary
+
+import cloudinary
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME' : 'dwf6qetmv',
+    'API_KEY': '896891821622348',
+    'API_SECRET': 'HELBgRPdXv420Flvj-7A5X1DyWA',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+cloudinary.config(
+    cloud_name = CLOUDINARY_STORAGE['CLOUD_NAME'],
+    api_key = CLOUDINARY_STORAGE['API_KEY'],
+    api_secret = CLOUDINARY_STORAGE['API_SECRET']
+)

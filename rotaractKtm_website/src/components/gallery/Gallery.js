@@ -1,5 +1,6 @@
-import React from "react";
-import { allGalleryImages } from "../../data/GalleryData";
+import React, { useEffect, useState } from "react";
+import API from "../../api"; // your axios instance
+import { NavLink } from "react-router-dom";
 
 const GalleryCard = ({ image, alt }) => (
   <div className="w-[390px] h-[250px] overflow-hidden rounded-lg shadow-lg">
@@ -12,14 +13,21 @@ const GalleryCard = ({ image, alt }) => (
 );
 
 const Gallery = () => {
-  // Filter only visible images
-  const galleryImages = allGalleryImages.filter((img) => img.show);
+  const [images, setImages] = useState([]);
 
-  // Sort by ID ascending
-  const sortedGalleryImages = galleryImages.sort((a, b) => a.id - b.id);
-
-  // Limit to first 6 images
-  const homeGalleryImages = sortedGalleryImages.slice(0, 6);
+  useEffect(() => {
+    API.get("/gallery/") // make sure this endpoint matches your DRF url
+      .then((res) => {
+        // Sort by ID descending (latest first) and take top 6
+        const latestImages = res.data
+          .sort((a, b) => b.id - a.id)
+          .slice(0, 6);
+        setImages(latestImages);
+      })
+      .catch((err) => {
+        console.error("Error fetching gallery images:", err);
+      });
+  }, []);
 
   return (
     <section className="bg-gray-50 py-16 sm:px-10 lg:px-20">
@@ -30,25 +38,26 @@ const Gallery = () => {
 
       {/* Image Cards Container */}
       <div className="flex flex-wrap gap-8 justify-center">
-        {homeGalleryImages.map((img) => (
-          <GalleryCard key={img.id} {...img} />
+        {images.map((img) => (
+          <GalleryCard key={img.id} image={img.image} alt={img.alt || "Gallery image"} />
         ))}
       </div>
-      
-  {/* View All Events Button */}
- <div className="flex justify-center mt-8">
-  <button
-    className="
-      w-[180px] h-[48px] px-3 flex items-center justify-center
-      font-open-sans text-[16px] leading-[26px] font-semibold
-      text-white bg-[#2D679A] rounded-[10px]
-      hover:bg-[#1E4669] active:bg-[#142E45]
-      disabled:opacity-40
-    "
-  >
-    View Full Gallery
-  </button>
-</div>
+
+      {/* View Full Gallery Button */}
+      <div className="flex justify-center mt-8">
+        <NavLink
+          to="/gallery"
+          className="
+            w-[180px] h-[48px] px-3 flex items-center justify-center
+            font-open-sans text-[16px] leading-[26px] font-semibold
+            text-white bg-[#2D679A] rounded-[10px]
+            hover:bg-[#1E4669] active:bg-[#142E45]
+            disabled:opacity-40
+          "
+        >
+          View Full Gallery
+        </NavLink>
+      </div>
     </section>
   );
 };

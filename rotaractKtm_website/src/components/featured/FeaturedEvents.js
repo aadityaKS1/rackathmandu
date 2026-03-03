@@ -1,8 +1,6 @@
-// FeaturedEvents.jsx
-
-import React from "react";
-import { allFeaturedEvents } from "../../data/FeaturedEventsData";
-
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import API from "../../api"; // your axios instance
 
 // Single Featured Event Card
 const FeaturedEventCard = ({ date, title, description, image }) => (
@@ -32,57 +30,76 @@ const FeaturedEventCard = ({ date, title, description, image }) => (
 );
 
 const FeaturedEvents = () => {
-  // Filter only visible events
-  const featuredEvents = allFeaturedEvents.filter((event) => event.show);
+  const [events, setEvents] = useState([]);
 
-  // Sort by ID ascending
-  const sortedFeaturedEvents = featuredEvents.sort((a, b) => a.id - b.id);
+  useEffect(() => {
+    API.get("/events/") // make sure this endpoint matches your DRF API
+      .then((res) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
 
-  // Limit to first 3 events
-  const homePageEvents = sortedFeaturedEvents.slice(0, 3);
+        // Filter completed (past) events
+        const completedEvents = res.data.filter((event) => {
+          const eventDate = new Date(event.event_date);
+          eventDate.setHours(0, 0, 0, 0);
+          return eventDate < today;
+        });
 
-  return (<>
-  
+        // Sort descending (latest first) and take 3
+        const latestThree = completedEvents
+          .sort((a, b) => new Date(b.event_date) - new Date(a.event_date))
+          .slice(0, 3);
+
+        setEvents(latestThree);
+      })
+      .catch((err) => console.error("Error fetching events:", err));
+  }, []);
+
+  return (
     <section className="bg-white py-16 sm:px-10 lg:px-20">
-  {/* Section Title */}
-  <h2 className="font-montserrat text-[36px] leading-[40px] font-bold text-[#16376EFF] text-center mb-10">
-    Featured Events
-  </h2>
+      {/* Section Title */}
+      <h2 className="font-montserrat text-[36px] leading-[40px] font-bold text-[#16376EFF] text-center mb-10">
+        Featured Events
+      </h2>
 
-  {/* Event Cards Container */}
-  <div className="flex flex-wrap gap-8 justify-center">
-    {homePageEvents.map((event) => (
-      <FeaturedEventCard key={event.id} {...event} />
-    ))}
+      {/* Event Cards Container */}
+      <div className="flex flex-wrap gap-8 justify-center">
+        {events.map((event) => (
+          <FeaturedEventCard
+            key={event.id}
+            title={event.title}
+            description={event.description}
+            date={event.formatted_date || event.event_date}
+            image={event.image}
+          />
+        ))}
 
-    {/* Placeholders if less than 3 events */}
-    {homePageEvents.length < 3 &&
-      [...Array(3 - homePageEvents.length)].map((_, i) => (
-        <div
-          key={`placeholder-${i}`}
-          className="w-[390px] h-[364px] bg-gray-100 rounded-[10px]"
-        />
-      ))}
-  </div>
+        {/* Placeholders if less than 3 events */}
+        {events.length < 3 &&
+          [...Array(3 - events.length)].map((_, i) => (
+            <div
+              key={`placeholder-${i}`}
+              className="w-[390px] h-[364px] bg-gray-100 rounded-[10px]"
+            />
+          ))}
+      </div>
 
-  {/* View All Events Button */}
- <div className="flex justify-center mt-8">
-  <button
-    className="
-      w-[180px] h-[48px] px-3 flex items-center justify-center
-      font-open-sans text-[16px] leading-[26px] font-semibold
-      text-white bg-[#2D679A] rounded-[10px]
-      hover:bg-[#1E4669] active:bg-[#142E45]
-      disabled:opacity-40
-    "
-  >
-    View All Events
-  </button>
-</div>
-
-</section>
-</>
-
+      {/* View All Events Button */}
+      <div className="flex justify-center mt-8">
+        <NavLink
+          to="/events"
+          className="
+            w-[180px] h-[48px] px-3 flex items-center justify-center
+            font-open-sans text-[16px] leading-[26px] font-semibold
+            text-white bg-[#2D679A] rounded-[10px]
+            hover:bg-[#1E4669] active:bg-[#142E45]
+            disabled:opacity-40
+          "
+        >
+          View All Events
+        </NavLink>
+      </div>
+    </section>
   );
 };
 

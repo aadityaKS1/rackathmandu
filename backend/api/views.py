@@ -1,28 +1,26 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Event , Gallery
-from .serializer import EventSerializer, GallerySerializer
 from rest_framework.response import Response
+from .models import Event, Gallery
+from .serializer import EventSerializer, GallerySerializer
 
-class EventListViewSet(viewsets.ViewSet):
-    queryset=Event.objects.all()
+from rest_framework import viewsets
+from .models import Event
+from .serializer import EventSerializer
 
-    def list(self,request):
-        serializer=EventSerializer(self.queryset, many=True)
-        return Response(serializer.data)
-    
+class EventListViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
-    
 
 class GalleryListViewSet(viewsets.ViewSet):
-    queryset = Gallery.objects.all()
+    queryset = Gallery.objects.all()  # Keep your original style
 
     def list(self, request):
-        category = request.query_params.get('category', None)
+        photos = self.queryset
+
+        category = request.query_params.get('category')
         if category:
-            photos = Gallery.objects.filter(category=category)
-        else:
-            photos = self.queryset
+            photos = photos.filter(category=category)
 
         serializer = GallerySerializer(photos, many=True, context={'request': request})
         return Response(serializer.data)

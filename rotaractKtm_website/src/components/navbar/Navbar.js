@@ -1,96 +1,115 @@
-import React from "react";
-import logo from "../../assets/logo.png"; 
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Events", href: "/events" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
+  ];
+
   return (
-    <header className="w-full bg-white shadow-sm border-b border-gray-100">
-      <div className="max-w-[1400px] mx-auto px-4 py-3 flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+      ${
+        scrolled
+          ? "bg-white shadow-md py-3"
+          : "bg-transparent backdrop-blur-sm py-5"
+      }`}
+    >
+      <div className="max-w-[1300px] mx-auto px-6 flex items-center justify-between">
 
-        {/* Logo + Name Section */}
+        {/* Logo */}
         <div className="flex items-center gap-3">
-          <img 
-            src={logo}
-            alt="Rotaract Club of Kathmandu Logo"
-            className="w-12 h-auto"
-          />
-
-          <h1 className="font-bold text-xl text-[#2F3B65FF]">
-            Rotaract Club of Kathmandu
+          <img src={logo} alt="Rotaract Logo" className="w-12" />
+          <h1
+            className={`font-bold text-lg transition-colors duration-300 ${
+              scrolled ? "text-[#193172]" : "text-white"
+            }`}
+          >
+            Rotaract Kathmandu
           </h1>
         </div>
 
-        {/* Menu + Join Button */}
-        <div className="flex items-center gap-8">
-
-          {/* Navigation Menu with NavLink (NO MAP USED) */}
-          <nav className="flex gap-6 text-base leading-6 font-normal text-gray-600">
-
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-8 font-medium">
+          {navLinks.map((link) => (
             <NavLink
-              to="/"
+              key={link.name}
+              to={link.href}
               className={({ isActive }) =>
-                `transition duration-200 hover:text-[#E44E8CFF] 
-                ${isActive ? "text-[#E44E8CFF] border-b-2 border-[#E44E8CFF]" : ""}`
+                `transition-colors duration-300 ${
+                  isActive
+                    ? "text-[#DA1E5C]"
+                    : scrolled
+                    ? "text-gray-700 hover:text-[#DA1E5C]"
+                    : "text-white hover:text-[#DA1E5C]"
+                }`
               }
             >
-              Home
+              {link.name}
             </NavLink>
+          ))}
+        </nav>
 
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `transition duration-200 hover:text-[#E44E8CFF] 
-                ${isActive ? "text-[#E44E8CFF] border-b-2 border-[#E44E8CFF]" : ""}`
-              }
-            >
-              About
-            </NavLink>
-
-            <NavLink
-              to="/events"
-              className={({ isActive }) =>
-                `transition duration-200 hover:text-[#E44E8CFF]
-                ${isActive ? "text-[#E44E8CFF] border-b-2 border-[#E44E8CFF]" : ""}`
-              }
-            >
-              Events
-            </NavLink>
-
-            <NavLink
-              to="/gallery"
-              className={({ isActive }) =>
-                `transition duration-200 hover:text-[#E44E8CFF]
-                ${isActive ? "text-[#E44E8CFF] border-b-2 border-[#E44E8CFF]" : ""}`
-              }
-            >
-              Gallery
-            </NavLink>
-
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `transition duration-200 hover:text-[#E44E8CFF]
-                ${isActive ? "text-[#E44E8CFF] border-b-2 border-[#E44E8CFF]" : ""}`
-              }
-            >
-              Contact
-            </NavLink>
-
-          </nav>
-
-          {/* Join Us Button */}
-          <a
-            href="/join-us"
-            className="bg-[#E44E8CFF] text-white font-semibold px-6 py-2 rounded-lg
-                       hover:bg-[#C53A7A] hover:scale-105
-                       transition-[colors,transform] duration-300"
+        {/* CTA Button */}
+        <div className="hidden md:block">
+          <NavLink
+            to="/join-us"
+            className="bg-[#DA1E5C] text-white px-6 py-2 rounded-xl
+                       hover:scale-105 transition-all duration-300"
           >
             Join Us
-          </a>
-
+          </NavLink>
         </div>
 
+        {/* Mobile Menu Toggle */}
+        <button
+          className={`md:hidden transition-colors duration-300 ${
+            scrolled ? "text-[#193172]" : "text-white"
+          }`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-gray-700 hover:text-[#DA1E5C]"
+            >
+              {link.name}
+            </NavLink>
+          ))}
+          <NavLink
+            to="/join-us"
+            className="block bg-[#DA1E5C] text-white text-center py-2 rounded-lg"
+          >
+            Join Us
+          </NavLink>
+        </div>
+      )}
     </header>
   );
 };
