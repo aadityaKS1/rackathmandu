@@ -1,6 +1,7 @@
 // Abou
 import React from 'react';
 import aboutImage from '../../assets/about.jpg'
+import { NavLink } from 'react-router-dom';
 
 const AboutUs = () => {
 
@@ -30,14 +31,17 @@ const AboutUs = () => {
                         </p>
                         
                         {/* CTA Button */}
-                        <a 
-                            href="#about-page" 
+                        <NavLink to="/about">
+                        <div 
+                            
                             className="inline-block px-8 py-3 bg-[#2D679AFF] text-white font-semibold 
                                        rounded-lg hover:bg-blue-800 transition duration-300"
                         >
                             Learn More
-                        </a>
+                        </div>
+                        </NavLink>
                     </div>
+                    
 
                     {/* --- Right Column: Image --- */}
                     <div className="md:order-2 order-1 md:ml-1">

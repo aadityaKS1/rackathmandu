@@ -2,6 +2,7 @@ import logo from '../../assets/logo.png'
 import facebook from '../../assets/facebook.png'
 import instagram from '../../assets/social.png'
 import linkedin from '../../assets/linkedin.png'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -33,17 +34,28 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Column 2: Quick Links */}
+               
+
                 <div className="w-[111px]">
                     <p className="font-montserrat text-[18px] leading-[28px] font-bold text-white mb-4">
                         Quick Links
                     </p>
                     <ul className="space-y-2 text-[#D1D5DB] font-open-sans text-[14px] leading-[20px]">
-                        <li>Home</li>
-                        <li>About Us</li>
-                        <li>Event</li>
-                        <li>Gallery</li>
-                        <li>Contact Us</li>
+                        <li>
+                            <NavLink to="/" className="hover:text-white transition-colors">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about" className="hover:text-white transition-colors">About Us</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/events" className="hover:text-white transition-colors">Event</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/gallery" className="hover:text-white transition-colors">Gallery</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/contact" className="hover:text-white transition-colors">Contact Us</NavLink>
+                        </li>
                     </ul>
                 </div>
 
@@ -63,9 +75,9 @@ const Footer = () => {
             </div>
 
             <div className=" mt-10 w-[1232px] border-t border-[#1E40AF] mx-auto"></div>
-<p className="text-[#9CA3AF] font-open-sans text-[14px] leading-[20px] font-normal text-center mt-10">
- &copy; Rotaract Club of Kathmandu. All Rights Reserved.
-</p>
+            <p className="text-[#9CA3AF] font-open-sans text-[14px] leading-[20px] font-normal text-center mt-10">
+                &copy; Rotaract Club of Kathmandu. All Rights Reserved.
+            </p>
 
         </footer>
     );

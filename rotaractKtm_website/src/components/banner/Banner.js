@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Banner = () => {
   const customStyles = {
     width: "full",
@@ -36,13 +36,15 @@ const Banner = () => {
     </p>
 
     <div className="flex gap-6 justify-center mt-10">
-      <button className="bg-[#DA1E5C] px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
+      <NavLink to="/contact"> <div className="bg-[#DA1E5C] px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
         Get Involved
-      </button>
-
-      <button className="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-[#193172] transition-all duration-300">
+        </div> 
+      </NavLink>
+<NavLink to="/events">
+      <div className="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-[#193172] transition-all duration-300">
         Explore Events
-      </button>
+      </div>
+      </NavLink>
     </div>
   </div>
 

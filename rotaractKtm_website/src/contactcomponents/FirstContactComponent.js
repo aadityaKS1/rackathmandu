@@ -1,26 +1,35 @@
-import React from 'react';
+import React from "react";
 
 function FirstContactComponent() {
   return (
-    <div className="relative w-screen bg-[#3B519B] py-20">
-      
-      {/* Logo */}
-      <div className="absolute top-12 right-12 w-20 h-24">
-        Logo
+    <section
+      className="w-full min-h-[70vh] flex items-center justify-center 
+                 bg-gradient-to-br from-[#010f37] via-[#193172] to-[#66A5AD]
+                 px-4 sm:px-6 lg:px-8 
+                 py-16 sm:py-20 lg:py-24"
+    >
+      <div
+        className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl 
+                   text-center text-white mx-auto"
+      >
+        {/* Heading */}
+        <h1
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+                     font-bold leading-snug"
+        >
+          Get in Touch With Us
+        </h1>
+
+        {/* Description */}
+        <p
+          className="mt-5 sm:mt-6 
+                     text-base sm:text-lg md:text-xl 
+                     opacity-90"
+        >
+          Whether you're interested in becoming a member, partnering with us on a project, or just want to learn more about what we do, we'd love to hear from you.
+        </p>
       </div>
-
-      {/* Heading */}
-      <h1 className="text-center font-outfit text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-20">
-        Get in Touch With Us
-      </h1>
-
-      {/* Description */}
-      <p className="mt-6 max-w-3xl mx-auto text-center font-inter text-base sm:text-lg leading-7 text-gray-300 px-4">
-        Whether you're interested in becoming a member, partnering with us on a project, 
-        or just want to learn more about what we do, we'd love to hear from you.
-      </p>
-      
-    </div>
+    </section>
   );
 }
 

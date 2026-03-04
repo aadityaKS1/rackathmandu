@@ -35,6 +35,8 @@ const Navbar = () => {
       <div className="max-w-[1300px] mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
+        <NavLink
+        to="/">
         <div className="flex items-center gap-3">
           <img src={logo} alt="Rotaract Logo" className="w-12" />
           <h1
@@ -45,6 +47,8 @@ const Navbar = () => {
             Rotaract Kathmandu
           </h1>
         </div>
+        
+        </NavLink>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 font-medium">
