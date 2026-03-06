@@ -4,9 +4,11 @@ import About from './pages/About'
 import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import FAQChat from './pages/FAQChat'
+import { Divide } from 'lucide-react'
 
 function App() {
-
+  
   const router = createBrowserRouter([
     {
       path: "/",
@@ -31,7 +33,11 @@ function App() {
   ])
 
   return (
+    <div>
     <RouterProvider router={router} />
+    <FAQChat/>
+
+    </div>
   )
 }
 

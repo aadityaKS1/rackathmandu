@@ -7,6 +7,7 @@ import PillarsSection from '../components/aboutUsComponents/PillarSection'
 import JourneySection from '../components/aboutUsComponents/JourneySection'
 
 
+
 function About() {
     
        return (
@@ -16,6 +17,7 @@ function About() {
       <StorySection />
       <PillarsSection />
       <JourneySection />
+    
       <Footer />
 
     </>  

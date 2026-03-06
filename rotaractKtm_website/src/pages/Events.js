@@ -5,12 +5,14 @@ import EventSection from '../components/eventsComponents/EventSection'
 import Footer from '../components/footer/Footer'
 
 
+
 function Events() {
     return (
         <div>
       <Navbar />
       <EventBanner />
       <EventSection />
+     
       <Footer />
     </div>
     )

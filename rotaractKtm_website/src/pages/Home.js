@@ -7,6 +7,7 @@ import FeaturedEvents from '../components/featured/FeaturedEvents'
 import Gallery from '../components/gallery/Gallery'
 import Message from '../components/message/Message'
 import Footer from '../components/footer/Footer'
+
 // import Contact from '../components/contact/Contact'
 // import Footer from '../components/footer/Footer'
 
@@ -20,6 +21,7 @@ const Home = () => {
       <FeaturedEvents/>
       <Gallery/>
       <Message/>
+     
       <Footer/>
     </>  
   )

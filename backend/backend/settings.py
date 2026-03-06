@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'formsubmitted',
     'cloudinary',
     'cloudinary_storage',
+    'faq',
 
 
 ]

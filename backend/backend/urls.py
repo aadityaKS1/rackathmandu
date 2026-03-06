@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include 
 from rest_framework.routers import DefaultRouter
 from api.views import EventListViewSet, GalleryListViewSet
 from formsubmitted.views import FormSubmittedViewSet
@@ -14,6 +14,7 @@ router.register("formsubmitted/form",FormSubmittedViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/faq/', include('faq.urls')),
 ] + router.urls 
 
 

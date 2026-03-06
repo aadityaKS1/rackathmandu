@@ -4,6 +4,7 @@ import Footer from '../components/footer/Footer'
 import FirstContactComponent from '../contactcomponents/FirstContactComponent'
 import SecondContactComponent from '../contactcomponents/SecondContactComponent'
 import ThirdContactComponent from '../contactcomponents/ThirdContactComponent'
+
 function Contact() {
     return (
         <>
@@ -11,6 +12,7 @@ function Contact() {
          <FirstContactComponent/>
          <SecondContactComponent/>
          <ThirdContactComponent/>
+       
         <Footer/>
         </>
        
