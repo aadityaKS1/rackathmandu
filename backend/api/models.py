@@ -2,11 +2,11 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 CATEGORY_CHOICES = [
-    ('all','All Photos'),
-    ('fellowship', 'Fellowship'),
-    ('service', 'Service'),
-    ('leadership', 'Leadership'),
-    ('international', 'International'),
+    ('all', 'All Photos'),
+    ('service-project', 'Service-Project'),
+    ('professional-development', 'Professional Development'),
+    ('international-relation', 'International Relation'),
+    ('club-admin-and-fellowship', 'Club Admin and Fellowship'),
 ]
 
 class Gallery(models.Model):
@@ -25,10 +25,10 @@ from cloudinary.models import CloudinaryField
 
 EVENT_CATEGORY_CHOICES = [
     ('all', 'All Events'),
-    ('fellowship', 'Fellowship'),
-    ('service', 'Service'),
-    ('leadership', 'Leadership'),
-    ('international', 'International'),
+    ('service-project', 'Service-Project'),
+    ('professional-development', 'Professional Development'),
+    ('international-relation', 'International Relation'),
+    ('club-admin-and-fellowship', 'Club Admin and Fellowship'),
 ]
 
 class Event(models.Model):

@@ -40,6 +40,35 @@ const Committees = () => {
 
   if (error) return <p className="text-center py-20 text-red-500">Error: {error}</p>;
 
+  const MemberCard = ({ member, isGeneral = false }) => (
+    <div className="text-center">
+      {member.image ? (
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-16 h-16 mx-auto rounded-full object-cover mb-3 border-2 border-[#16376E]"
+          onError={(e) => {
+            e.target.style.display = "none";
+            e.target.nextSibling.style.display = "flex";
+          }}
+        />
+      ) : null}
+
+      {/* Fallback icon — shown if no image or image fails to load */}
+      <div
+        className="w-16 h-16 bg-[#16376E] rounded-full flex items-center justify-center text-white mx-auto mb-3"
+        style={{ display: member.image ? "none" : "flex" }}
+      >
+        <FaUser />
+      </div>
+
+      <div className="bg-white rounded-md py-2 px-1 shadow text-sm">
+        <p className="font-semibold text-[#16376E]">{member.name}</p>
+        <p className="text-gray-500">{isGeneral ? "General Member" : member.role}</p>
+      </div>
+    </div>
+  );
+
   return (
     <section className="py-20 bg-gray-200 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto text-center">
@@ -50,18 +79,12 @@ const Committees = () => {
         {/* Committees */}
         {committees.map((committee, index) => (
           <div key={index} className="mb-16">
-            <h3 className="text-xl font-semibold mb-8">{committee.title}</h3>
+            <h3 className="text-xl font-semibold text-[#16376E] mb-8">
+              {committee.title}
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
               {committee.members.map((member) => (
-                <div key={member.id} className="text-center">
-                  <div className="w-16 h-16 bg-[#16376E] rounded-full flex items-center justify-center text-white mx-auto mb-3">
-                    <FaUser />
-                  </div>
-                  <div className="bg-white rounded-md py-2 shadow text-sm">
-                    <p className="font-semibold">{member.name}</p>
-                    <p className="text-gray-500">{member.role}</p>
-                  </div>
-                </div>
+                <MemberCard key={member.id} member={member} />
               ))}
             </div>
           </div>
@@ -73,15 +96,7 @@ const Committees = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
           {generalMembers.map((member) => (
-            <div key={member.id} className="text-center">
-              <div className="w-16 h-16 bg-[#16376E] rounded-full flex items-center justify-center text-white mx-auto mb-3">
-                <FaUser />
-              </div>
-              <div className="bg-white rounded-md py-2 shadow text-sm">
-                <p className="font-semibold">{member.name}</p>
-                <p className="text-gray-500">General Member</p>
-              </div>
-            </div>
+            <MemberCard key={member.id} member={member} isGeneral={true} />
           ))}
         </div>
 

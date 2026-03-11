@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import TeamMember
+from .models import TeamMember, Gallery, Event
+
+admin.site.register(Gallery)
+admin.site.register(Event)
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
