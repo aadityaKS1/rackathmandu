@@ -1,22 +1,13 @@
 import React from 'react'
-
+import galleryImage from '../../assets/gallery.png'
 function GalleryFirstComponent() {
   return (
     <section
-      className="w-full min-h-[70vh] flex items-center justify-center
-                 bg-gradient-to-br from-[#010f37] via-[#193172] to-[#66A5AD]
-                 px-4 sm:px-6 lg:px-8
-                 py-16 sm:py-20 lg:py-24"
+      className="h-[500px] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: `url(${galleryImage})` }}
     >
-      <div className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl
-                      text-center text-white mx-auto">
-        
-        <h1
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
-                     font-bold leading-snug">
-          Our Moments in Action
-        </h1>
-
+      <div className="bg-black/40 w-full h-full flex items-center justify-center">
+        <h1 className="text-white text-5xl font-bold">Our Gallery</h1>
       </div>
     </section>
   )

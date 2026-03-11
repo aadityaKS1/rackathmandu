@@ -12,7 +12,7 @@ const GalleryCard = ({ image, alt }) => (
   </div>
 );
 
-const Gallery = () => {
+const GalleryComp = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -62,4 +62,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default GalleryComp;

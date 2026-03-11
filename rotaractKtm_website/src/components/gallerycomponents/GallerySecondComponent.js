@@ -21,14 +21,11 @@ function Gallery() {
   return (
     <section
       className="w-full min-h-[70vh] flex flex-col items-center
-                 bg-gradient-to-br from-[#010f37] via-[#193172] to-[#66A5AD]
+                bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl
                  px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
     >
       {/* Heading */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-                     font-bold leading-snug text-white text-center mb-12">
-        Our Moments in Action
-      </h1>
+
 
       {/* Gallery Grid */}
       <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

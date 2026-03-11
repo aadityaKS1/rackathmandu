@@ -3,6 +3,7 @@ import Navbar from '../components/navbar/Navbar'
 import GallerySecondComponent from '../components/gallerycomponents/GallerySecondComponent'
 import GalleyFirstComponent from '../components/gallerycomponents/GalleryFirstComponent'
 import Footer from '../components/footer/Footer'
+import GalleryComp from '../components/gallery/GalleryComp'
 
 function Gallery() {
     return (
