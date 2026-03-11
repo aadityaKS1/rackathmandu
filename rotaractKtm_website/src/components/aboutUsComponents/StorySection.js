@@ -12,12 +12,16 @@ const StorySection = () => {
                             Our Story
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
-                            The Rotaract Club of Kathmandu was established in 2005 as a community service organization for young professionals and students aged 18-30. Sponsored by the Rotary Club of Kathmandu, we have grown into one of the most active Rotaract clubs in Nepal, with a strong focus on community development, professional growth, and international understanding.
+
+                            Rotaract Club of Kathmandu lies in R.I. District 3292, chartered on 6th November 1996, is a non-profit making, non-political, non-religious and volunteer service organization of students and young professionals aged between 18 and above. Rotaract Club of Kathmandu is one of the pioneer and most active Rotaract Club in Nepal which is sponsored by Rotary Club of Kathmandu.
+
                         </p>
                         <p className="text-gray-600 leading-relaxed mt-6">
-                            Over the years, we have implemented numerous successful projects in areas such as education, health, environment, and disaster relief. Our members come from diverse backgrounds but share a common goal of making a positive impact in our communities.
+                            We focus on five avenues of Service; Club Service; Professional Development, International Service, Youth Service and Community service.
                         </p>
-
+                        <p className="text-gray-600 leading-relaxed mt-6">
+                            We welcome you to visit our Club and also invite you to join with us at our regular meetings, fun-fellowship programs, and volunteer opportunities
+                        </p>    
                     </div>
 
                     <div>
@@ -25,9 +29,7 @@ const StorySection = () => {
                             Our Vision
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
-                            To empower young leaders to create sustainable positive change
-                            in our communities and develop personally and professionally
-                            through service and fellowship.
+                            Our vision is to develop an inclusive club that fosters professional growth, environmental stewardship, international understanding and fellowship, empowering a diverse membership to become influential leaders and create lasting impact within the community.
                         </p>
                     </div>
 

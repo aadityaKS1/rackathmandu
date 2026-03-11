@@ -6,7 +6,7 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import FAQChat from './pages/FAQChat'
 import { Divide } from 'lucide-react'
-
+import Team from './pages/Team'
 function App() {
   
   const router = createBrowserRouter([
@@ -29,6 +29,10 @@ function App() {
     {
       path: "/contact",
       element: <Contact />
+    },
+    {
+      path: "/team",
+      element: <Team />
     }
   ])
 

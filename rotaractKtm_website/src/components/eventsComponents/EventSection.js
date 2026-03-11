@@ -10,7 +10,7 @@ const EventSection = () => {
 
   const INITIAL_COUNT = 6; // Show first 6 initially
 
-  const filters = ["All", "Upcoming", "Completed", "Fellowship", "Service", "Professional Development"];
+  const filters = ["All", "Upcoming", "Completed", "Service-Project", "Professional Development","International Relation", "Club Admin and Fellowship"];
 
   // Fetch events from API on mount
   useEffect(() => {

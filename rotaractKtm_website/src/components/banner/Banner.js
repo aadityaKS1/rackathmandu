@@ -1,54 +1,107 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
+import B1 from "../../assets/slideshow/banner1.png";
+import B2 from "../../assets/slideshow/banner2.jpg";
+import B3 from "../../assets/slideshow/banner3.jpg";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/effect-fade";
+
 const Banner = () => {
-  const customStyles = {
-    width: "full",
-    height: "550px",
-    // Applying the specific linear gradient
-    background: "linear-gradient(90deg, #193172 0% , #29487C 50%, #66A5AD 100%)",
-    // The border-radius property (0px 0px 0px 0px is equivalent to 0)
-    borderRadius: "0",
-  };
+
+  const slides = [B1, B2, B3];
+
   return (
-<section className="relative w-full h-[700px] flex items-center justify-center text-white overflow-hidden">
+    <section className="relative w-full h-[700px] flex items-center text-white overflow-hidden">
 
-  {/* Base Gradient */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#193172] to-[#66A5AD]" />
+      {/* Gradient Background */}
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#193172_0%,#2D679AFF_46%,#2D679AFF_46%,transparent_100%)]" />
+      {/* LEFT CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
 
-  {/* Soft Glow */}
-  <div className="absolute w-[700px] h-[700px] bg-[#DA1E5C] opacity-20 blur-[200px] rounded-full top-[-200px] right-[-150px]" />
+        <div className="grid md:grid-cols-2 items-center gap-16">
 
-  {/* Subtle Texture */}
-  <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:35px_35px] opacity-5"></div>
+          <div>
 
-  {/* Content */}
-  <div className="relative z-10 text-center max-w-4xl px-6">
-    <h1 className="text-6xl font-bold leading-tight">
-      Rotaract Club of Kathmandu
-    </h1>
+            <h1 className="text-6xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+              Lead · Connect <br />
+              Transform
+            </h1>
 
-    <p className="mt-6 text-xl opacity-90">
-      Lead · Connect · Transform
-    </p>
+            <p className="mt-5 text-xl text-white/70 max-w-md">
+              Fellowship Through Service
+            </p>
 
-    <p className="mt-2 text-lg opacity-75">
-      Fellowship Through Service
-    </p>
+            <div className="flex gap-5 mt-10">
 
-    <div className="flex gap-6 justify-center mt-10">
-      <NavLink to="/contact"> <div className="bg-[#DA1E5C] px-8 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
-        Get Involved
-        </div> 
-      </NavLink>
-<NavLink to="/events">
-      <div className="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-[#193172] transition-all duration-300">
-        Explore Events
+              <NavLink to="/contact">
+                <button className="bg-[#DA1E5C] px-7 py-3 rounded-lg font-semibold shadow-lg hover:scale-105 transition">
+                  Get Involved
+                </button>
+              </NavLink>
+
+              <NavLink to="/events">
+                <button className="border border-white/70 px-7 py-3 rounded-lg hover:bg-white hover:text-[#DA1E5C] transition">
+                  Explore Events
+                </button>
+              </NavLink>
+
+            </div>
+
+            <div className="flex gap-10 mt-12 text-white/70 text-sm">
+
+              <div>
+                <p className="text-2xl font-bold text-white">30+</p>
+                Years Impact
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-white">1500+</p>
+                Events
+              </div>
+
+              <div>
+                <p className="text-2xl font-bold text-white">50K+</p>
+                People Reached
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
-      </NavLink>
-    </div>
-  </div>
 
-</section>
+      {/* RIGHT SIDE FULL WIDTH SLIDER */}
+      <div className="absolute right-0 top-0 h-full w-[55%] z-0">
+
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          loop
+          className="w-full h-full"
+        >
+          {slides.map((img, i) => (
+            <SwiperSlide key={i}>
+              <img
+                src={img}
+                alt="Rotaract event"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Left Fade Overlay */}
+        <div className="absolute left-0 top-0 h-full w-[45%] bg-gradient-to-r from-[#193172] via-[#193172]/70 to-transparent"></div>      </div>
+
+    </section>
   );
 };
 

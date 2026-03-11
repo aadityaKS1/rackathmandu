@@ -6,7 +6,7 @@ const EventCard = ({ title, date, time, status }) => {
   const isCompleted = status === "Completed";
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="z-100 bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
       
       {/* Status Label */}
       <p
@@ -60,10 +60,10 @@ const UpcomingEvents = () => {
   };
 
   return (
-    <section className="relative bg-transparent">
+    <section className="relative bg-transparent z-40">
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="-mt-16 bg-white py-12 px-6 rounded-t-[24px] shadow-lg">
+        <div className="-mt-16 bg-white py-12 px-6 rounded-t-[24px] shadow-lg z-40">
 
           {/* Heading */}
           <div className="text-center mb-10">

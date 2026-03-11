@@ -5,6 +5,7 @@ import AboutUsBanner from '../components/aboutUsComponents/heroComponent'
 import StorySection from '../components/aboutUsComponents/StorySection'
 import PillarsSection from '../components/aboutUsComponents/PillarSection'
 import JourneySection from '../components/aboutUsComponents/JourneySection'
+import Avenues from '../components/aboutUsComponents/Avenues'
 
 
 
@@ -15,9 +16,9 @@ function About() {
       <Navbar />
       <AboutUsBanner />
       <StorySection />
+      <Avenues />
       <PillarsSection />
-      <JourneySection />
-    
+      <JourneySection />    
       <Footer />
 
     </>  

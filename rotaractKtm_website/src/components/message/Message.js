@@ -14,7 +14,7 @@ const Message = () => {
       {/* Member Info */}
       <div className="flex flex-col items-center mt-12">
         <p className="text-white font-open-sans text-[18px] leading-[28px] font-bold italic text-center">
-          Aaditya Sharma
+          Aaditya Singh
         </p>
         <p className="text-[#E5E7EB] font-open-sans text-[14px] leading-[20px] font-normal text-center">
           Member Since 2024
