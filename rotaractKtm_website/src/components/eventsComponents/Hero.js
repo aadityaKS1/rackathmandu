@@ -1,30 +1,15 @@
 import React from "react";
-
+import EventBannerPhoto from "../../assets/eventbanner.png";
 const EventBanner = () => {
     return (
-        <section className="w-full min-h-[70vh] flex items-center justify-center 
-                        bg-gradient-to-br from-[#010f37] via-[#193172] to-[#66A5AD]
-                        px-4 sm:px-6 lg:px-8 
-                        py-16 sm:py-20 lg:py-24">
-
-            <div className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl 
-                      text-center text-white mx-auto">
-
-                {/* Heading */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-                       font-bold leading-snug">
-                    Events & Activities
-                </h1>
-
-                {/* Sub Text */}
-                <p className="mt-5 sm:mt-6 
-                      text-base sm:text-lg md:text-xl 
-                      opacity-90">
-                    Discover our impactful initiatives, fellowship gatherings, and service projects that make a difference in our community and help develop future leaders.
-                </p>
-
-            </div>
-        </section>
+   <section
+      className="h-[550px] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: `url(${EventBannerPhoto})` }}
+    >
+      <div className="bg-black/40 w-full h-full flex items-center justify-center">
+        <h1 className="text-white text-5xl font-bold">Events and Activities</h1>
+      </div>
+    </section>
     );
 };
 

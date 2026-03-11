@@ -6,6 +6,7 @@ import StorySection from '../components/aboutUsComponents/StorySection'
 import PillarsSection from '../components/aboutUsComponents/PillarSection'
 import JourneySection from '../components/aboutUsComponents/JourneySection'
 import Avenues from '../components/aboutUsComponents/Avenues'
+import TwinClubs from '../components/aboutUsComponents/Twinclubs'
 
 
 
@@ -16,9 +17,10 @@ function About() {
       <Navbar />
       <AboutUsBanner />
       <StorySection />
-      <Avenues />
       <PillarsSection />
-      <JourneySection />    
+      <Avenues />
+      <JourneySection />   
+      <TwinClubs/> 
       <Footer />
 
     </>  

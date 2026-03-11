@@ -7,7 +7,7 @@ const AboutUs = () => {
 
     return (
         // Section Container: Adds space above and below the whole block
-        <section className=" bg-white py-16 sm:px-10 lg:px-20 ">
+        <section className="mt-16 bg-white py-16 sm:px-10 lg:px-20 ">
             <div className="container mx-auto max-w-7xl ">
                 
                 {/* Responsive Grid: Stacks on mobile, 2 columns on medium screens and up */}

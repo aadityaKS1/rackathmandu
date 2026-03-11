@@ -89,7 +89,7 @@ const Navbar = () => {
           ))}
 
           <NavLink
-            to="/join-us"
+            to="/contact"
             className="block bg-[#DA1E5C] text-white text-center py-2 rounded-lg"
           >
             Join Us
