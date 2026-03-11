@@ -15,26 +15,27 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-gray-100">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
 
       <div className="max-w-[1300px] mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Rotaract Logo" className="w-12" />
-          <h1 className="font-bold text-lg text-[#193172]">
-            Rotaract  Club of Kathmandu
+          <img src={logo} alt="Rotaract Logo" className="w-10 md:w-12" />
+          <h1 className="font-semibold text-sm sm:text-base md:text-lg text-[#193172] whitespace-nowrap">
+            Rotaract Club of Kathmandu
           </h1>
         </NavLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 font-medium">
+        <nav className="hidden md:flex items-center gap-8 font-medium text-sm">
+
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.href}
               className={({ isActive }) =>
-                `transition-colors duration-300 ${
+                `relative transition-colors duration-300 ${
                   isActive
                     ? "text-[#DA1E5C]"
                     : "text-gray-700 hover:text-[#DA1E5C]"
@@ -44,13 +45,14 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
+
         </nav>
 
         {/* Join Button */}
         <div className="hidden md:block">
           <NavLink
             to="/join-us"
-            className="bg-[#DA1E5C] text-white px-6 py-2 rounded-xl hover:scale-105 transition"
+            className="bg-[#DA1E5C] text-white px-5 py-2 rounded-lg font-medium hover:shadow-md hover:scale-105 transition"
           >
             Join Us
           </NavLink>
@@ -58,6 +60,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
+          aria-label="Toggle Menu"
           className="md:hidden text-[#193172] text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
@@ -67,15 +70,19 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+      <div
+        className={`md:hidden bg-white border-t border-gray-100 shadow-md transition-all duration-300 ${
+          menuOpen ? "max-h-[400px] py-4 px-6" : "max-h-0 overflow-hidden"
+        }`}
+      >
+        <div className="flex flex-col gap-4">
 
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-gray-700 hover:text-[#DA1E5C]"
+              className="text-gray-700 font-medium hover:text-[#DA1E5C] transition"
             >
               {link.name}
             </NavLink>
@@ -83,13 +90,14 @@ const Navbar = () => {
 
           <NavLink
             to="/join-us"
-            className="block bg-[#DA1E5C] text-white text-center py-2 rounded-lg"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 bg-[#DA1E5C] text-white text-center py-2 rounded-lg font-medium"
           >
             Join Us
           </NavLink>
 
         </div>
-      )}
+      </div>
 
     </header>
   );

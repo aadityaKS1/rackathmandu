@@ -12,62 +12,62 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 const Banner = () => {
-
   const slides = [B1, B2, B3];
 
   return (
-    <section className="relative w-full h-[700px] flex items-center text-white overflow-hidden">
+    <section className="relative w-full min-h-[80vh] md:min-h-[90vh] flex items-center text-white overflow-hidden">
 
       {/* Gradient Background */}
-      <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#193172_0%,#2D679AFF_46%,#2D679AFF_46%,transparent_100%)]" />
-      {/* LEFT CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#193172_0%,#2D679A_25%,transparent_65%)]" />
 
-        <div className="grid md:grid-cols-2 items-center gap-16">
+      {/* LEFT CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-10">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
 
           <div>
 
-            <h1 className="text-6xl md:text-7xl font-bold leading-[1.1] tracking-tight">
-              Lead · Connect <br />
-              Transform
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+              Lead. Connect. <br />
+              Transform.
             </h1>
 
-            <p className="mt-5 text-xl text-white/70 max-w-md">
+            <p className="mt-4 md:mt-5 text-lg md:text-xl text-white/70 max-w-md">
               Fellowship Through Service
             </p>
 
-            <div className="flex gap-5 mt-10">
+            <div className="flex flex-wrap gap-4 md:gap-5 mt-8 md:mt-10">
 
               <NavLink to="/contact">
-                <button className="bg-[#DA1E5C] px-7 py-3 rounded-lg font-semibold shadow-lg hover:scale-105 transition">
+                <button className="bg-[#DA1E5C] px-6 md:px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition">
                   Get Involved
                 </button>
               </NavLink>
 
               <NavLink to="/events">
-                <button className="border border-white/70 px-7 py-3 rounded-lg hover:bg-white hover:text-[#DA1E5C] transition">
+                <button className="border border-white/80 px-6 md:px-8 py-3 rounded-lg hover:bg-white hover:text-[#DA1E5C] transition">
                   Explore Events
                 </button>
               </NavLink>
 
             </div>
 
-            <div className="flex gap-10 mt-12 text-white/70 text-sm">
+            <div className="flex flex-wrap gap-8 md:gap-12 mt-10 md:mt-12 text-white/90 text-sm">
 
               <div>
-                <p className="text-2xl font-bold text-white">30+</p>
+                <p className="text-xl md:text-2xl font-bold text-white">30+</p>
                 Years Impact
               </div>
+
               <div>
-                <p className="text-2xl font-bold text-white">1500+</p>
+                <p className="text-xl md:text-2xl font-bold text-white">1500+</p>
                 Events
               </div>
 
               <div>
-                <p className="text-2xl font-bold text-white">50K+</p>
+                <p className="text-xl md:text-2xl font-bold text-white">50K+</p>
                 People Reached
               </div>
-
 
             </div>
 
@@ -77,13 +77,13 @@ const Banner = () => {
 
       </div>
 
-      {/* RIGHT SIDE FULL WIDTH SLIDER */}
-      <div className="absolute right-0 top-0 h-full w-[55%] z-0">
+      {/* RIGHT SIDE SLIDER */}
+      <div className="absolute right-0 top-0 h-full w-full md:w-[75%] z-0">
 
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          autoplay={{ delay: 4500, disableOnInteraction: false }}
           loop
           className="w-full h-full"
         >
@@ -92,14 +92,19 @@ const Banner = () => {
               <img
                 src={img}
                 alt="Rotaract event"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover brightness-[0.85]"
+                loading="lazy"
               />
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Left Fade Overlay */}
-        <div className="absolute left-0 top-0 h-full w-[45%] bg-gradient-to-r from-[#193172] via-[#193172]/70 to-transparent"></div>      </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 text-white/70 text-sm animate-bounce">
+        ↓ Scroll
+      </div>
 
     </section>
   );
