@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
-import API from "../../api"; // your axios instance
+import API from "../../api";
 
 const EventSection = () => {
-  const [events, setEvents] = useState([]);        // All events from API
-  const [displayedEvents, setDisplayedEvents] = useState([]); // Events shown on page
+  const [events, setEvents] = useState([]);
+  const [displayedEvents, setDisplayedEvents] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
-  const [showAll, setShowAll] = useState(false);  // To track "Load More"
+  const [showAll, setShowAll] = useState(false);
 
-  const INITIAL_COUNT = 6; // Show first 6 initially
+  const INITIAL_COUNT = 6;
 
-  const filters = ["All", "Upcoming", "Completed", "Service-Project", "Professional Development","International Relation", "Club Admin and Fellowship"];
+  const filters = ["All", "Upcoming", "Completed", "Service-Project", "Professional Development", "International Relation", "Club Admin and Fellowship"];
 
   // Fetch events from API on mount
   useEffect(() => {
-    API.get("/events/") // make sure this endpoint matches your DRF url
+    API.get("/events/")
       .then((res) => {
-        // Sort by date descending to show latest first
+        console.log("Events from API:", res.data); // <-- add this
+
         const sorted = res.data.sort(
           (a, b) => new Date(b.event_date) - new Date(a.event_date)
         );
         setEvents(sorted);
-
-        // Initially display only the first 6
         setDisplayedEvents(sorted.slice(0, INITIAL_COUNT));
       })
       .catch((err) => {
@@ -31,13 +30,17 @@ const EventSection = () => {
   }, []);
 
   // Filter events based on activeFilter
-  useEffect(() => {
-    const filtered =
-      activeFilter === "All"
-        ? events
-        : events.filter((event) => event.status === activeFilter);
+useEffect(() => {
+    console.log("Active filter:", activeFilter);
+    console.log("Converts to:", activeFilter.toLowerCase().replace(/ /g, "-"));
+    console.log("All categories:", events.map(e => e.category));
 
-    // If Load More has been clicked, show all filtered events
+    const filtered = activeFilter === "All"
+      ? events
+      : activeFilter === "Upcoming" || activeFilter === "Completed"
+        ? events.filter((event) => event.status === activeFilter)
+        : events.filter((event) => event.category === activeFilter.toLowerCase().replace(/ /g, "-"));
+
     if (showAll) {
       setDisplayedEvents(filtered);
     } else {
@@ -45,10 +48,10 @@ const EventSection = () => {
     }
   }, [activeFilter, events, showAll]);
 
-  const handleLoadMore = () => {
-    setShowAll(true); // Show all filtered events
+  const handleLoadMore = () => {    // <-- add this here
+    setShowAll(true);
   };
-
+  
   return (
     <section className="w-full py-16 px-6 bg-white sm:px-10 md:px-16 lg:px-24 xl:px-32">
       <div className="max-w-7xl mx-auto">
@@ -60,7 +63,7 @@ const EventSection = () => {
               key={index}
               onClick={() => {
                 setActiveFilter(item);
-                setShowAll(false); // Reset Load More on filter change
+                setShowAll(false);
               }}
               className={`px-5 py-2 rounded-full text-sm font-medium ${
                 activeFilter === item
@@ -79,11 +82,11 @@ const EventSection = () => {
             <EventCard
               key={event.id}
               image={event.image}
-              date={event.formatted_date} // Assuming serializer has formatted_date
+              date={event.formatted_date}
               title={event.title}
               description={event.description}
-              status={event.status} // From serializer
-              actionType={event.actionType} // From serializer
+              status={event.status}
+              actionType={event.actionType}
             />
           ))}
         </div>

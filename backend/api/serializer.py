@@ -1,56 +1,44 @@
 from rest_framework import serializers
-from .models import Event, Gallery
+from .models import TeamMember, Event, Gallery
 from datetime import date
-from django.utils import timezone
+
+class TeamMemberSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    class Meta:
+        model = TeamMember
+        fields = ['id', 'name', 'role', 'image', 'category', 'committee_title', 'order']
+
+    def get_image(self, obj):
+        return obj.image.url if obj.image else None
+
 
 class EventSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
     formatted_date = serializers.SerializerMethodField()
-    actionType = serializers.SerializerMethodField()
     status = serializers.SerializerMethodField()
-    image = serializers.SerializerMethodField()  # Use SerializerMethodField for clarity
+    actionType = serializers.SerializerMethodField()
 
     class Meta:
         model = Event
         fields = [
-            "id",
-            "title",
-            "description",
-            "location",
-            "event_date",
-            "weekday",
-            "start_time",
-            "end_time",
-            "image",
-            "formatted_date",
-            "actionType",
-            "status",
+            'id', 'title', 'description', 'location',
+            'event_date', 'weekday', 'start_time', 'end_time',
+            'category', 'image', 'formatted_date', 'status', 'actionType'
         ]
 
     def get_image(self, obj):
-        if obj.image:
-            return obj.image.url  # This will be the full Cloudinary URL
-        return None
+        return obj.image.url if obj.image else None
 
     def get_formatted_date(self, obj):
-        if obj.event_date:
-            return obj.event_date.strftime("%B %d, %Y")
-        return None
-
-    def get_actionType(self, obj):
-        if obj.event_date:
-            today = timezone.now().date()
-            return "join" if obj.event_date >= today else "view"
-        return "view"
+        return obj.event_date.strftime("%B %d, %Y") if obj.event_date else None
 
     def get_status(self, obj):
-        if obj.event_date:
-            today = timezone.now().date()
-            return "Upcoming" if obj.event_date >= today else "Completed"
-        return "Completed"
+        return "Upcoming" if obj.event_date >= date.today() else "Completed"
 
-# api/serializers.py
-from rest_framework import serializers
-from .models import Gallery
+    def get_actionType(self, obj):
+        return "register" if obj.event_date >= date.today() else "view"
+
 
 class GallerySerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
@@ -60,21 +48,4 @@ class GallerySerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'category', 'image', 'created_at']
 
     def get_image(self, obj):
-        if obj.image:
-            return obj.image.url  # Cloudinary URL
-        return None
-
-
-    from rest_framework import serializers
-from .models import TeamMember
-
-class TeamMemberSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
-
-    class Meta:
-        model = TeamMember
-        fields = ['id', 'name', 'role', 'image', 'category', 'order']
-
-    def get_image(self, obj):
-        # Returns the full Cloudinary URL
         return obj.image.url if obj.image else None

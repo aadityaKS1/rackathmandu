@@ -52,7 +52,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <NavLink
             to="/join-us"
-            className="bg-[#DA1E5C] text-white px-5 py-2 rounded-lg font-medium hover:shadow-md hover:scale-105 transition"
+            className="bg-[#DA1E5C] text-white px-6 py-2 rounded-xl hover:scale-105 transition"
           >
             Join Us
           </NavLink>
@@ -90,8 +90,7 @@ const Navbar = () => {
 
           <NavLink
             to="/join-us"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 bg-[#DA1E5C] text-white text-center py-2 rounded-lg font-medium"
+            className="block bg-[#DA1E5C] text-white text-center py-2 rounded-lg"
           >
             Join Us
           </NavLink>

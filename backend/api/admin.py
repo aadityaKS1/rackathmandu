@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TeamMember, Event, Gallery
+from .models import TeamMember
 
 admin.site.register(Event)
 admin.site.register(Gallery)
