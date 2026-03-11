@@ -63,3 +63,18 @@ class GallerySerializer(serializers.ModelSerializer):
         if obj.image:
             return obj.image.url  # Cloudinary URL
         return None
+
+
+    from rest_framework import serializers
+from .models import TeamMember
+
+class TeamMemberSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    class Meta:
+        model = TeamMember
+        fields = ['id', 'name', 'role', 'image', 'category', 'order']
+
+    def get_image(self, obj):
+        # Returns the full Cloudinary URL
+        return obj.image.url if obj.image else None

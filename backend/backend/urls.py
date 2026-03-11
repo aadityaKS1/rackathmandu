@@ -15,6 +15,7 @@ router.register("formsubmitted/form",FormSubmittedViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/faq/', include('faq.urls')),
+    path('api/', include('api.urls')),
 ] + router.urls 
 
 
