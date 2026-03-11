@@ -39,3 +39,15 @@ def get_question(request, slug):
 
     serializer = QuestionDetailSerializer(question)
     return Response(serializer.data)
+
+
+
+@api_view(['GET'])
+def get_suggestions(request):
+    questions = (
+        Question.objects
+        .filter(is_featured=True)
+        .values('id', 'text', 'slug')
+        [:6]
+    )
+    return Response(list(questions))

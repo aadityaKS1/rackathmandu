@@ -8,6 +8,7 @@ class Question(models.Model):
     text       = models.CharField(max_length=500)
     answer     = models.TextField()
     slug       = models.SlugField(max_length=500, unique=True, blank=True)
+    is_featured = models.BooleanField(default=False) 
     created_at = models.DateTimeField(auto_now_add=True)
 
     related_questions = models.ManyToManyField(

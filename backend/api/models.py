@@ -47,3 +47,30 @@ class Event(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.event_date} ({self.weekday})"
+
+
+
+
+
+from django.db import models
+from cloudinary.models import CloudinaryField
+
+class TeamMember(models.Model):
+    ROLE_CATEGORY = [
+        ('executive', 'Executive Board'),
+        ('committee', 'Committee'),
+        ('general', 'General Member'),
+    ]
+
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100, blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
+    category = models.CharField(max_length=20, choices=ROLE_CATEGORY, default='executive')
+    committee_title = models.CharField(max_length=100, blank=True)  # only for committee members
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"{self.name} - {self.role}"
