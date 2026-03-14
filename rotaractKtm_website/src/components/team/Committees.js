@@ -11,8 +11,8 @@ const Committees = () => {
     const fetchData = async () => {
       try {
         const [committeeRes, generalRes] = await Promise.all([
-          fetch("http://localhost:8000/api/team/committees/"),
-          fetch("http://localhost:8000/api/team/general-members/")
+          fetch(`${process.env.REACT_APP_API_URL}/api/team/committees/`),
+          fetch(`${process.env.REACT_APP_API_URL}/api/team/general-members/`)
         ]);
 
         if (!committeeRes.ok || !generalRes.ok) throw new Error("Failed to fetch");

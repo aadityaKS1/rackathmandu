@@ -6,7 +6,8 @@ const ExecutiveBoard = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/team/executive-board/")
+    fetch(`${process.env.REACT_APP_API_URL}/api/team/executive-board/`)
+
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
