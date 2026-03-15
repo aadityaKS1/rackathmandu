@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import B1 from "../../assets/slideshow/banner1.png";
 import B2 from "../../assets/slideshow/banner2.jpg";
 import B3 from "../../assets/slideshow/banner3.jpg";
+import B4 from "../../assets/slideshow/banner4.JPG";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
