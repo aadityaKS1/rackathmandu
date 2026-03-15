@@ -1,5 +1,5 @@
 import React from 'react'
-import galleryImage from '../../assets/gallery.png'
+import galleryImage from '../../assets/gallery_image.jpg'
 function GalleryFirstComponent() {
   return (
     <section
