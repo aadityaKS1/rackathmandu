@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* Join Button */}
         <div className="hidden md:block">
           <NavLink
-            to="/join-us"
+            to="/contact"
             className="bg-[#DA1E5C] text-white px-6 py-2 rounded-xl hover:scale-105 transition"
           >
             Join Us

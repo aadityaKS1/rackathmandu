@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 const Banner = () => {
-  const slides = [B1, B2, B3];
+  const slides = [B1, B2, B3,B4];
 
   return (
     <section className="relative w-full min-h-[80vh] md:min-h-[90vh] flex items-center text-white overflow-hidden">

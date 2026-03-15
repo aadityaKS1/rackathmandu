@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/api/faq";
+const BASE_URL = "https://rac-backend-kjcu.onrender.com/api/faq";
 
 function smoothScrollToBottom(container) {
   if (!container) return;

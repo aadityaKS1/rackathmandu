@@ -1,12 +1,12 @@
 import React from "react";
 
 const journeyData = [
-  { year: "2005", text: "Founding of the Rotaract Club of Kathmandu with 15 charter members." },
-  { year: "2010", text: "Launched our signature 'Education for All' project providing scholarships." },
-  { year: "2015", text: "Led emergency relief efforts following the devastating Nepal earthquake." },
-  { year: "2018", text: "Recognized as Outstanding Rotaract Club in District 3292." },
-  { year: "2020", text: "Pivoted to virtual service during the pandemic." },
-  { year: "2023", text: "Celebrated 18th anniversary with 'Green Kathmandu' initiative." },
+  { year: "1996", text: "Rotaract Club of Kathmandu charted." },
+  { year: "2004", text: "Launched our signature project 'Inter-COllege Rotaract Running Sheild Quiz Competition'." },
+  { year: "2014", text: "Exchange Program with Hong Kong Rotaract Club." },
+  { year: "2019", text: "Recognized as Outstanding Rotaract Club in District 3292." },
+  { year: "2023", text: "Won Mr. Rotasia 2023 Bangladesh." },
+  { year: "2026", text: "Celebrated our 30th charter day." },
 ];
 
 const JourneySection = () => {

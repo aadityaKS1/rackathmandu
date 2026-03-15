@@ -1,5 +1,5 @@
 import React from "react";
-import EventBannerPhoto from "../../assets/eventbanner.png";
+import EventBannerPhoto from "../../assets/gallery_image.jpg";
 const EventBanner = () => {
     return (
    <section

@@ -14,7 +14,7 @@ const Footer = () => {
                 <div>
                   
                     <p className="font-montserrat text-[18px] leading-[28px] font-bold text-white mb-4">
-                        Contat
+                        Contact
                     </p>
                    
                     {/* Contact Info */}
