@@ -239,7 +239,7 @@ function SecondContactComponent() {
                 <img src={clock} className="h-8" />
                 <div>
                   <p className="font-semibold text-[#3B519B]">Meeting Time</p>
-                  <p>Every Sunday at 5:00 P.M.</p>
+                  <p>Every Sunday at 5:30 P.M.</p>
                 </div>
               </div>
 
