@@ -82,7 +82,7 @@ const Committees = () => {
             <h3 className="text-xl font-semibold text-[#16376E] mb-8">
               {committee.title}
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
               {committee.members.map((member) => (
                 <MemberCard key={member.id} member={member} />
               ))}
